@@ -1,12 +1,26 @@
 <!DOCTYPE html>
 <html lang="en-US">
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="js/angular-route.js"></script>
+<script src="js/config.js"></script>
+
 <body>
 
-<div ng-app="">
-  <p>Name : <input type="text" ng-model="name"></p>
-  <h1>Hello {{name}}</h1>
-</div>
+	<div ng-app="pinkyCommerce">
+		<div ng-include='"templates/header.html"'></div>
+		<div ng-view></div>
+		<div ng-include='"templates/footer.html"'></div>
+	</div>
 
 </body>
+<script>
+	
+	app.controller('GreetingController', [ '$scope', function($scope) {
+		$scope.greeting = 'Hola!';
+		$scope.name = "Muthu";
+	} ]);
+</script>
+<script src="js/loginController.js"></script>
+<script src="js/homePageController.js"></script>
 </html>
