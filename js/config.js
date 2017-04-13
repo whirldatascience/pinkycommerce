@@ -29,3 +29,6 @@ app.config([ '$routeProvider', function($routeProvider) {
 	});
 
 } ]);
+
+var accessToken = "146a01f0b8c148a8908e5a10e5b51a2f";
+var baseUrl = "https://api.api.ai/v1/";
