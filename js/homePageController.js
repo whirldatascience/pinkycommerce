@@ -62,9 +62,23 @@ app.controller('homePageController', [ '$scope', function($scope) {
 	}
 
 	$scope.searchProduct = function(productName) {
-		console.log("Started searching for the product: " + productName);
+		console.log("Started searching for the product using API: " + productName);
+		var apiUrl="/pinkycommerce/services/index.php/api/"
 		if (typeof productName !== "undefined") {
-			$scope.speech("I am searching for " + productName);
+			$.ajax({
+				type : "GET",
+				url : apiUrl + "productDetails/"+productName,
+
+				success : function(data) {
+					console.log("Called==> "+apiUrl + "productDetails/"+productName);
+					console.log("Data is printing");
+					console.log("==>"+data);
+					$scope.speech(data);
+				},
+				error : function() {
+					$scope.setResponse("Internal Server Error");
+				}
+			});
 		}
 	}
 
